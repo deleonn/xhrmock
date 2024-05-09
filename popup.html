@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>XHRMock</title>
+    <style>
+      body {
+        padding: 10px;
+        font-family: Arial, sans-serif;
+        width: 300px; /* Adjusted width */
+      }
+      textarea,
+      input,
+      select {
+        width: 100%;
+        margin-top: 5px;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+      textarea {
+        height: 100px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mock API Settings</h1>
+    <label>URL to mock:</label>
+    <input type="text" id="urlToMock" placeholder="Enter URL to mock" />
+    <label>URL to redirect to:</label>
+    <input type="text" id="redirect" placeholder="Enter URL to redirect to" />
+
+    <label><input type="checkbox" id="mockEnabled" /> Enable Mocking</label>
+
+    <button id="saveSettings">Save Settings</button>
+    <script src="popup.js"></script>
+  </body>
+</html>
