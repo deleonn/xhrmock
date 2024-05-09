@@ -1,20 +1,23 @@
 {
   "manifest_version": 3,
   "name": "XHRMock",
-  "description": "Small chrome extension that allows redirecting requests.",
+  "description": "Small chrome extension to mock XHR requests by redirecting to a different endpoint.",
   "version": "1.0",
   "permissions": [
     "storage",
     "declarativeNetRequest",
-    "declarativeNetRequestWithHostAccess"
+    "declarativeNetRequestWithHostAccess",
+    "activeTab"
   ],
   "host_permissions": ["*://localhost:*/*"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' https://cdn.tailwindcss.com 'unsafe-inline';"
+  },
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon.png"
+    "default_popup": "popup.html"
   },
   "declarative_net_request": {
     "rule_resources": [

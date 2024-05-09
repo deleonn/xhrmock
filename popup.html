@@ -1,48 +1,78 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <link href="./output.css" rel="stylesheet" />
     <title>XHRMock</title>
     <style>
       body {
         padding: 10px;
         font-family: Arial, sans-serif;
-        width: 300px; /* Adjusted width */
-      }
-      textarea,
-      input,
-      select {
-        width: 100%;
-        margin-top: 5px;
-        padding: 5px;
-        box-sizing: border-box;
-      }
-      textarea {
-        height: 100px;
-      }
-      button {
-        width: 100%;
-        padding: 10px;
-        margin-top: 10px;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #45a049;
+        width: 500px; /* Adjusted width */
       }
     </style>
   </head>
   <body>
-    <h1>Mock API Settings</h1>
-    <label>URL to mock:</label>
-    <input type="text" id="urlToMock" placeholder="Enter URL to mock" />
-    <label>URL to redirect to:</label>
-    <input type="text" id="redirect" placeholder="Enter URL to redirect to" />
+    <div class="container flex flex-col">
+      <div class="container">
+        <h1 class="mb-1 text-indigo-600 text-lg font-bold">XHRMock Settings</h1>
+      </div>
+      <div class="flex flex-col">
+        <div class="mb-3">
+          <label for="urlToMock" class="text-sm font-medium"
+            >URL to mock:</label
+          >
+          <input
+            type="text"
+            id="urlToMock"
+            placeholder="Enter URL to mock"
+            class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </div>
 
-    <label><input type="checkbox" id="mockEnabled" /> Enable Mocking</label>
+        <div class="mb-3">
+          <label for="redirect" class="text-sm font-medium"
+            >URL to redirect to:</label
+          >
+          <input
+            type="text"
+            id="redirect"
+            placeholder="Enter URL to redirect to"
+            class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        </div>
 
-    <button id="saveSettings">Save Settings</button>
+        <div class="flex items-center space-x-2 mb-3">
+          <input
+            type="checkbox"
+            id="mockEnabled"
+            class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+          />
+          <label for="mockEnabled" class="text-sm font-medium">
+            Enable Mocking
+          </label>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between mt-4">
+        <button
+          type="button"
+          class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          id="saveSettings"
+        >
+          Save
+        </button>
+        <div class="flex items-center space-x-2">
+          <div class="flex items-center">
+            <div
+              id="indicator"
+              class="h-3 w-3 rounded-full bg-gray-500 mr-2"
+            ></div>
+            <span id="indicator-text" class="text-sm font-medium"></span>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>

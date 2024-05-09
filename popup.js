@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             document.getElementById("mockEnabled").checked =
                 data.mockEnabled !== undefined ? data.mockEnabled : true;
+
+            toggleIndicator(data.mockEnabled);
         },
     );
 
@@ -21,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         chrome.storage.local.set({ urlToMock, redirect, mockEnabled }, () => {
             console.log("Settings saved");
+
+            toggleIndicator(mockEnabled);
 
             chrome.runtime.sendMessage(
                 {
@@ -40,3 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+function toggleIndicator(enabled) {
+    const indicator = document.getElementById("indicator");
+    const indicatorText = document.getElementById("indicator-text");
+
+    if (enabled) {
+        indicator.classList.remove("bg-red-500");
+        indicator.classList.remove("bg-gray-500");
+        indicator.classList.add("bg-green-500");
+        indicatorText.innerText = "On";
+    } else {
+        indicator.classList.remove("bg-green-500");
+        indicator.classList.remove("bg-gray-500");
+        indicator.classList.add("bg-red-500");
+        indicatorText.innerText = "Off";
+    }
+}
